@@ -8,12 +8,6 @@ const eventEmitter = new EventEmitter();
 let tcpIpMessages = [];
 
 class _HostCommunicationController {
-  sleep(ms) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
-  }
-
   startsWithNumber(str) {
     return /^\d/.test(str);
   }
@@ -141,10 +135,28 @@ class _HostCommunicationController {
       eventEmitter.on('wsConnectStatus', async (flag) => {
         returnStatus = flag;
       });
-      await this.sleep(1000);
-      return returnStatus;
+      await setTimeout(() => {}, 1000);
+      return {
+        statusCode: StatusCode.SUCCESS,
+        body: {
+          data: {
+            message: returnStatus
+              ? 'Connection established success'
+              : 'Connection not established.Please change port number',
+            success: returnStatus ? 1 : 0,
+          },
+          status: 'success',
+        },
+      };
     } catch (error: any) {
-      return false;
+      return {
+        statusCode: StatusCode.BAD_REQUEST,
+        body: {
+          status: 'error',
+          success: 0,
+          message: error.message,
+        },
+      };
     }
   }
 }
