@@ -7,7 +7,9 @@
     "dev": "nodemon ./src/app.ts",
     "start": "node dist/app.js",
     "build": "tsc --build",
-    "docker": "docker compose build --no-cache"
+    "docker": "docker compose build --no-cache",
+    "pkg": "rm -rf dist && rm -rf main-linux && rm -rf main-macos && rm -rf main-win.exe  &&  yarn build && pkg dist/main.js",
+    "pkgWin": "yarn build && pkg dist/main.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
