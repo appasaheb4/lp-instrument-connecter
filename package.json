@@ -2,14 +2,14 @@
   "name": "lp-instrument-connecter",
   "version": "1.0.0",
   "description": "instrument connecter",
-  "main": "./src/main.ts",
+  "main": "./src/app.ts",
   "scripts": {
     "dev": "nodemon ./src/app.ts",
     "start": "node dist/app.js",
     "build": "tsc --build",
     "docker": "docker compose build --no-cache",
-    "pkg": "rm -rf dist && rm -rf main-linux && rm -rf main-macos && rm -rf main-win.exe  &&  yarn build && pkg dist/main.js",
-    "pkgWin": "yarn build && pkg dist/main.js"
+    "pkgWin": "yarn build && pkg dist/app.js",
+    "pkg": "yarn build && pkg --options `expose-gc,max-heap-size=34` index.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

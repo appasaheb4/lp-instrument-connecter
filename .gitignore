@@ -36,3 +36,7 @@ lerna-debug.log*
 
 # build
 /dist
+
+*.exe
+app-macos
+app-linux
