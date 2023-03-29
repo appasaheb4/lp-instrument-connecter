@@ -1,0 +1,38 @@
+{
+  "name": "lp-instrument-connecter",
+  "version": "1.0.0",
+  "description": "instrument connecter",
+  "main": "./src/main.ts",
+  "scripts": {
+    "dev": "nodemon ./src/app.ts",
+    "start": "node dist/app.js",
+    "build": "tsc --build",
+    "docker": "docker compose build --no-cache"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/express-form-data": "^2.0.2",
+    "@types/lodash": "^4.14.186",
+    "@types/multer": "^1.4.7",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.7",
+    "events": "^3.3.0",
+    "express": "^4.18.1",
+    "express-form-data": "^2.0.18",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.0.3",
+    "multer": "^1.4.5-lts.1",
+    "net": "^1.0.2"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "appasaheb4",
+  "license": "ISC"
+}

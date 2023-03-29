@@ -1,0 +1,165 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "nlu": {
+      "log": false
+    },
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager",
+      "log": false
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "home,plan,unlimit": {
+            "intent": "du.homeWirelessPlan",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "du.homeWirelessPlan": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Home unlimited plan",
+            "intent": "du.homeWirelessPlan"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "home": 1,
+              "unlimit": 1,
+              "plan": 1
+            },
+            "intents": {
+              "du.homeWirelessPlan": 1
+            },
+            "intentFeatures": {
+              "du.homeWirelessPlan": {
+                "home": 1,
+                "unlimit": 1,
+                "plan": 1
+              }
+            },
+            "featuresToIntent": {
+              "home": [
+                "du.homeWirelessPlan"
+              ],
+              "unlimit": [
+                "du.homeWirelessPlan"
+              ],
+              "plan": [
+                "du.homeWirelessPlan"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true
+              },
+              "features": [
+                "home",
+                "unlimit",
+                "plan"
+              ],
+              "intents": [
+                "du.homeWirelessPlan"
+              ],
+              "perceptrons": [
+                [
+                  4.106055736541748,
+                  4.106055736541748,
+                  4.106055736541748,
+                  2.0879259344517775
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "Home unlimited plan"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "du.homeWirelessPlan": [
+          {
+            "answer": "We have 2 plan. 1.Home Wireless Plus 2.Home Wireless Entertainment"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

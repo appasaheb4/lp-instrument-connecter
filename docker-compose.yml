@@ -1,0 +1,12 @@
+version: '0.0.1'
+services:
+  app:
+    container_name: lp-instrument-connecter
+    image: lp-instrument-connecter
+    build:
+      context: .
+    volumes:
+      - ./src:/app/src
+    platform: linux/amd64
+    ports:
+      - '8080:8080'
